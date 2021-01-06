@@ -1,0 +1,23 @@
+@use 'loadingScreen';
+@use 'loginSignup';
+@use 'fourOhFour';
+
+
+/* ===== Home.js page ===== */
+.home {
+  position: absolute;
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.chart-container {
+  margin: 2em;
+}
+// the wrapper containing the chart. widhth and height are set inline. 
+// could likely also set them based on window size in react, or by media queries here
+.recharts-wrapper {
+  margin: auto;
+}
+
+/* ==================================*/
