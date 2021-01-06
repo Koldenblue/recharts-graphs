@@ -1,14 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { setCurrentUser, selectCurrentUser } from './redux/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
-import Login from './components/LoginSignupPages/Login';
-import Signup from './components/LoginSignupPages/Signup';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from 'axios';
 import Home from './components/Home';
 import FourOhFour from './components/FourOhFour';
-import ProtectedRoute from './components/ProtectedRoute';
-import LoginStatus from './components/LoginStatus';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,22 +37,7 @@ function App() {
       <Router>
         <Switch>
 
-          {/* Home component only reachable if user is logged in. */}
-          {/* <ProtectedRoute exact path="/" user={currentUser} isLoading={loading} onFailureRedirectToPath="/login">
-            <Home />
-          </ProtectedRoute> */}
           <Route exact path='/' component={Home} />
-          <Route exact path='/login'>
-            <Login />
-          </Route>
-
-          <Route exact path='/signup'>
-            <Signup />
-          </Route>
-
-          <Route exact path='/loginstatus'>
-            <LoginStatus loading={loading}/>
-          </Route>
 
           {/* Any path not listed above returns 404 */}
           <Route path='/'>
