@@ -1,7 +1,4 @@
 import React from 'react';
-import Axios from 'axios';
-import { useDispatch } from 'react-redux';
-import { setCurrentUser } from '../redux/userSlice';
 import * as Recharts from "recharts/umd/Recharts";
 import Container from 'react-bootstrap/Container';
 const Area = Recharts.Area;
@@ -13,25 +10,20 @@ const YAxis = Recharts.YAxis;
 const Tooltip = Recharts.Tooltip;
 const ResponsiveContainer = Recharts.ResponsiveContainer;
 
-export default function Home() {
-  const dispatch = useDispatch();
-
-  const logout = () => {
-    Axios.get('api/logout').then(() => {
-      // reloading the page also works, since the logged in user is retrieved from the store upon page load
-      dispatch(setCurrentUser(null));
-      // window.location.reload();
-    })
-  }
+export default function Chart(props) {
 
   // problem: the tooltip only displays numbers, but not labels? apparently this could be changed?
   // legend?
-  const data = [
-    { name: 'january', facebook: 400, ig: 2400, twitter: 1400 },
-    { name: 'feb', facebook: 500, ig: 3000, twitter: 2400 },
-    { name: 'march', facebook: 700, ig: 1000, twitter: 900 },
-    { name: 'april', facebook: 1700, ig: 1200, twitter: 200 }
-  ]
+  if (typeof(props.data) === 'number') {
+    console.log(props.data)
+  } else {
+    const data = [
+      { name: 'january', facebook: 400, ig: 2400, twitter: 1400 },
+      { name: 'feb', facebook: 500, ig: 3000, twitter: 2400 },
+      { name: 'march', facebook: 700, ig: 1000, twitter: 900 },
+      { name: 'april', facebook: 1700, ig: 1200, twitter: 200 }
+    ]
+  }
 
   return (
     <Container>

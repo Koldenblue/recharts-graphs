@@ -3,8 +3,9 @@ import { setCurrentUser, selectCurrentUser } from './redux/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import axios from 'axios';
-import Home from './components/Home';
+import Chart from './components/Chart';
 import FourOhFour from './components/FourOhFour';
+import ParamInput from './components/ParamInput';
 
 function App() {
   const dispatch = useDispatch();
@@ -37,7 +38,9 @@ function App() {
       <Router>
         <Switch>
 
-          <Route exact path='/' component={Home} />
+          <Route exact path='/' component={ParamInput} />
+
+          <Route exact path='/chart' component={Chart} />
 
           {/* Any path not listed above returns 404 */}
           <Route path='/'>
