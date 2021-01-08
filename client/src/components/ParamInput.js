@@ -4,7 +4,7 @@ import Chart from './Chart';
 
 export default function ParamInput() {
 const history = useHistory();
-const [chart, setChart] = useState()
+const [chart, setChart] = useState(<></>)
 
   const handleSubmit = (event) => {
     event.preventDefault();
