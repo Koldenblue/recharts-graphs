@@ -30,7 +30,7 @@ export default function Chart(props) {
   let data;
   // problem: the tooltip only displays numbers, but not labels? apparently this could be changed?
   // legend?
-  if (typeof (parseInt(props.days)) === 'number') {
+  if (typeof (parseInt(props.days)) === 'number' && parseInt(props.days) !== NaN) {
     console.log(props.days)
     let name = 0;
     let facebook = 0;
